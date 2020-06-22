@@ -1,0 +1,77 @@
+:github-address: https://github.com/hazelcast-guides/hazelcast-embedded-kubernetes
+:templates-url: https://raw.githubusercontent.com/hazelcast-guides/adoc-templates/master
+:hazelcast: Hazelcast IMDG
+:framework: Kubernetes
+
+= Getting Started with Embedded Hazelcast on Kubernetes
+
+This guide will get you started to Embedded Hazelcast on the Kubernetes environment.
+
+include::{templates-url}/link-to-repo.adoc[]
+
+== What You’ll Learn
+
+In this guide, you'll deploy an application with embedded Hazelcast into a Kubernetes cluster. Hazelcast instances from each application replica will all automatically discover themselves and form one consistent Hazelcast cluster. Thanks to https://github.com/hazelcast/hazelcast-kubernetes[Hazelcast Kubernetes discovery plugin], there is not static configuration needed.
+
+== Prerequisites
+
+- ~15 minutes
+- https://docs.docker.com/install/[Docker] (https://www.docker.com/products/docker-desktop[Docker for Desktop] is good enough)
+- https://kubernetes.io/[Kubernetes] cluster (https://www.docker.com/products/docker-desktop[Docker for Desktop] or https://minikube.sigs.k8s.io/docs/[Minikube] is good enough)
+- https://git-scm.com/[Git]
+include::{templates-url}/microservices/prerequisites.adoc[]
+
+== Create an Application
+
+You can embed Hazelcast into any JVM-based application and use any web framework you want. As the sample for this guide, let's use the application from https://github.com/hazelcast-guides/hazelcast-embedded-springboot[Getting Started with Hazelcast using Spring Boot] guide. To download it, execute the following command.
+
+---
+git clone https://github.com/hazelcast-guides/hazelcast-embedded-springboot.git
+---
+
+== Use Hazelcast Kubernetes Configuration
+
+Hazelcast provides the dedicated https://github.com/hazelcast/hazelcast-kubernetes[Hazelcast Kubernetes plugin] which allows to automatically form Hazelcast cluster in the Kubernetes environment. To enabled it, use the following `hazelcast.yaml` as your Hazelcast configuration.
+
+[source, yaml]
+----
+hazelcast:
+  network:
+    join:
+      multicast:
+        enabled: false
+      kubernetes:
+        enabled: true
+----
+
+To include this file inside your Spring Boot project, put it into `hazelcast-embedded-springboot/src/resources/`.
+
+Alternatively, you can inline your Hazelcast configuration inside the Java code.
+
+[source, java]
+----
+public Config hazelcastConfig() {
+    Config config = new Config();
+    JoinConfig joinConfig = config.getNetworkConfig().getJoin();
+    joinConfig.getMulticastConfig().setEnabled(false);
+    joinConfig.getKubernetesConfig().setEnabled(true);
+    return config;
+}
+----
+
+Now, you can build the project with the following command.
+
+---
+mvn package -f hazelcast-embedded-springboot/pom.xml
+---
+
+As an output, the JAR file with our application should be created at `hazelcast-embedded-springboot/target/`.
+
+== Containerize the Application
+
+
+
+== Configure RBAC
+
+== Deploy the Application to Kubernetes
+
