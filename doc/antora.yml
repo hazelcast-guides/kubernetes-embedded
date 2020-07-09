@@ -1,2 +1,3 @@
 name: hazelcast-embedded-kubernetes
 title: Getting Started with Embedded Hazelcast on Kubernetes
+version: v1.0-beta
