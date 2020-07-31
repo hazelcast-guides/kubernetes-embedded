@@ -30,6 +30,11 @@ You can embed Hazelcast into any JVM-based application and use any web framework
 git clone https://github.com/hazelcast-guides/hazelcast-embedded-springboot.git
 ----
 
+[TIP]
+====
+You can use any other JVM-based application framework, but make sure your project includes a dependency to `hazelcast:hazelcast-all:${hazelcast.version}` (or `hazelcast:hazelcast-kubernetes:${hazelcast-kubernetes.version`).
+====
+
 == Use Hazelcast Kubernetes Configuration
 
 Hazelcast provides the dedicated https://github.com/hazelcast/hazelcast-kubernetes[Hazelcast Kubernetes plugin] which allows to automatically form Hazelcast cluster in the Kubernetes environment. To enabled it, use the following Hazelcast configuration.
