@@ -1,3 +1,3 @@
-name: kubernetes-springboot-embedded
+name: kubernetes-embedded
 title: Getting Started with Embedded Hazelcast on Kubernetes
 version: master
