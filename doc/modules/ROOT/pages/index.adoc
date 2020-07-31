@@ -3,7 +3,7 @@
 :hazelcast: Hazelcast IMDG
 :framework: Kubernetes
 
-= Getting Started with Embedded Hazelcast on Kubernetes
+= Embedded Hazelcast on Kubernetes
 
 This guide will get you started to use Embedded Hazelcast on the Kubernetes environment.
 
@@ -24,7 +24,7 @@ In this guide, you'll deploy an application with embedded Hazelcast into a Kuber
 
 == Create an Application
 
-You can embed Hazelcast into any JVM-based application and use any web framework you want. As the sample for this guide, let's use the application from https://github.com/hazelcast-guides/hazelcast-embedded-springboot[Getting Started with Hazelcast using Spring Boot] guide. To download it, execute the following command.
+You can embed Hazelcast into any JVM-based application and use any web framework you want. As the sample for this guide, let's use the application from xref:hazelcast-embedded-springboot:ROOT:index.adoc[Getting Started with Hazelcast using Spring Boot] guide. To download it, execute the following command.
 
 ----
 git clone https://github.com/hazelcast-guides/hazelcast-embedded-springboot.git
@@ -32,7 +32,7 @@ git clone https://github.com/hazelcast-guides/hazelcast-embedded-springboot.git
 
 [TIP]
 ====
-You can use any other JVM-based application framework, but make sure your project includes a dependency to `hazelcast:hazelcast-all:${hazelcast.version}` (or `hazelcast:hazelcast-kubernetes:${hazelcast-kubernetes.version`).
+You can use any other JVM-based application framework, but please make sure your project includes a dependency to '`hazelcast:hazelcast-all:${hazelcast.version}`' (or '`hazelcast:hazelcast-kubernetes:${hazelcast-kubernetes.version}`').
 ====
 
 == Use Hazelcast Kubernetes Configuration
@@ -87,7 +87,7 @@ If you build the image by yourself, then you need to use your Docker Hub account
 docker push hazelcastguides/hazelcast-embedded-kubernetes
 ----
 
-If you want to use your image in the following steps, please also make sure your Docker Hub registry is public. However, for the purpose of this guide, you can also use the already built `hazelcastguides/hazelcast-embedded-kubernetes` Docker image.
+If you want to use your image in the following steps, please also make sure your Docker Hub registry is public. However, for the purpose of this guide, you can use the already built `hazelcastguides/hazelcast-embedded-kubernetes` Docker image.
 
 
 == Configure RBAC
@@ -101,9 +101,9 @@ kubectl apply -f https://raw.githubusercontent.com/hazelcast/hazelcast-kubernete
 Note that:
 
 - If you use service account other than `default` or namespace other than `default`, you need to modify https://raw.githubusercontent.com/hazelcast/hazelcast-kubernetes/master/rbac.yaml
-- If your Kubernetes cluster does not use RBAC, you can skip the "Configure RBAC" step
+- If your Kubernetes cluster does not use RBAC, you can skip the whole "Configure RBAC" step
 
-== Deploy the Application to Kubernetes
+== Deploy Application to Kubernetes
 
 Assuming you have a running Kubernetes cluster, you can run the following commands to deploy your application and scale it to 2 replicas.
 
