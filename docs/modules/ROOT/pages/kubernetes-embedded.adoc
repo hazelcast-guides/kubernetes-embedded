@@ -1,8 +1,8 @@
 = Get Started with Embedded Hazelcast on Kubernetes
 :templates-url: templates:ROOT:page$/
 :page-layout: tutorial
-:page-product: cloud
-:page-categories: Caching, Spring Boot, Kubernetes
+:page-product: imdg
+:page-categories: Caching, Spring Boot, Deployment, Kubernetes
 :page-lang: java
 :page-edition: 
 :page-est-time: 15 mins
