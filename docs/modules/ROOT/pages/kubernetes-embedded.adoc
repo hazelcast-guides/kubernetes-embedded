@@ -23,7 +23,7 @@
 
 == Create an Application
 
-You can embed Hazelcast into any JVM-based application and use any web framework you want. As an sample for this tutorial, use the application from the xref:tutorials:ROOT:get-started-springboot.adoc[] tutorial. To download it, execute the following command.
+You can embed Hazelcast into any JVM-based application and use any web framework you want. As an sample for this tutorial, use the application from the xref:hazelcast-embedded-springboot.adoc[] tutorial. To download it, execute the following command.
 
 ----
 git clone https://github.com/hazelcast-guides/hazelcast-embedded-springboot.git
