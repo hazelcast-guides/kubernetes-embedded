@@ -1,1 +1,2 @@
-See the guide [here](https://guides.hazelcast.org/kubernetes-embedded).
+See the link:https://docs.hazelcast.com/tutorials/kubernetes-embedded[tutorial].
+
