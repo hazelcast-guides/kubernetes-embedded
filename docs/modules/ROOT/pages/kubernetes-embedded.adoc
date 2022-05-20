@@ -2,16 +2,18 @@
 :templates-url: templates:ROOT:page$/
 :page-layout: tutorial
 :page-product: imdg
-:page-categories: Caching, Spring Boot, Deployment, Kubernetes
+:page-categories: Caching, Spring Boot, Deployment, Cloud Native
 :page-lang: java
 :page-edition: 
 :page-est-time: 15 mins
 :framework: Kubernetes
-:description: pass:[In this tutorial, you'll deploy an application with embedded Hazelcast into a Kubernetes cluster. Hazelcast instances from each application replica will all automatically discover themselves and form one consistent Hazelcast cluster. Thanks to https://github.com/hazelcast/hazelcast-kubernetes[Hazelcast Kubernetes discovery plugin], there is no static configuration needed.]
-
-== What You’ll Learn
+:description: Deploy an application with embedded Hazelcast into a Kubernetes cluster.
 
 {description}
+
+== Context
+
+Hazelcast instances from each application replica will all automatically discover themselves and form one consistent Hazelcast cluster. Thanks to https://github.com/hazelcast/hazelcast-kubernetes[Hazelcast Kubernetes discovery plugin], there is no static configuration needed.
 
 == Before you Begin
 
