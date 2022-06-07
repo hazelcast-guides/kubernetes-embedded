@@ -1,21 +1,22 @@
-:github-address: https://github.com/hazelcast-guides/kubernetes-embedded
+= Get Started with Embedded Hazelcast on Kubernetes
 :templates-url: templates:ROOT:page$/
-:hazelcast: Hazelcast IMDG
+:page-layout: tutorial
+:page-product: imdg
+:page-categories: Caching, Spring Boot, Deployment, Cloud Native
+:page-lang: java
+:page-edition: 
+:page-est-time: 15 mins
 :framework: Kubernetes
+:description: Deploy an application with embedded Hazelcast into a Kubernetes cluster.
 
-= Embedded Hazelcast on Kubernetes
+{description}
 
-This guide will get you started to use Embedded Hazelcast on the Kubernetes environment.
+== Context
 
-include::{templates-url}/link-to-repo.adoc[]
+Hazelcast instances from each application replica will all automatically discover themselves and form one consistent Hazelcast cluster. Thanks to https://github.com/hazelcast/hazelcast-kubernetes[Hazelcast Kubernetes discovery plugin], there is no static configuration needed.
 
-== What You’ll Learn
+== Before you Begin
 
-In this guide, you'll deploy an application with embedded Hazelcast into a Kubernetes cluster. Hazelcast instances from each application replica will all automatically discover themselves and form one consistent Hazelcast cluster. Thanks to https://github.com/hazelcast/hazelcast-kubernetes[Hazelcast Kubernetes discovery plugin], there is no static configuration needed.
-
-== Prerequisites
-
-- ~15 minutes
 - https://docs.docker.com/install/[Docker] (https://www.docker.com/products/docker-desktop[Docker for Desktop] is good enough)
 - https://kubernetes.io/[Kubernetes] cluster (https://www.docker.com/products/docker-desktop[Docker for Desktop] or https://minikube.sigs.k8s.io/docs/[Minikube] is good enough)
 - https://git-scm.com/[Git]
@@ -24,7 +25,7 @@ In this guide, you'll deploy an application with embedded Hazelcast into a Kuber
 
 == Create an Application
 
-You can embed Hazelcast into any JVM-based application and use any web framework you want. As the sample for this guide, let's use the application from xref:hazelcast-embedded-springboot:ROOT:index.adoc[Getting Started with Hazelcast using Spring Boot] guide. To download it, execute the following command.
+You can embed Hazelcast into any JVM-based application and use any web framework you want. As an sample for this tutorial, use the application from the xref:hazelcast-embedded-springboot.adoc[] tutorial. To download it, execute the following command.
 
 ----
 git clone https://github.com/hazelcast-guides/hazelcast-embedded-springboot.git
@@ -132,7 +133,7 @@ Members {size:2, ver:2} [
 ]
 ----
 
-== Testing the Application
+== Test the Application
 
 To test that the application works correctly, you can create a Kubernetes service which load balances the traffic to one of the application replicas.
 
@@ -156,7 +157,7 @@ $ curl "localhost:8080/get?key=key1"
 
 ----
 
-== Tearing Down the Deployment
+== Tear Down the Deployment
 
 To delete all Kubernetes resources you created, run the following command.
 
