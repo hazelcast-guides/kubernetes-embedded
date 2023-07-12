@@ -38,7 +38,7 @@ You can use any other JVM-based application framework, but please make sure your
 
 == Use Hazelcast Kubernetes Configuration
 
-Hazelcast provides the dedicated https://github.com/hazelcast/hazelcast-kubernetes[Hazelcast Kubernetes plugin] which allows to automatically form Hazelcast cluster in the Kubernetes environment. To enabled it, use the following Hazelcast configuration.
+Hazelcast provides the dedicated https://docs.hazelcast.com/hazelcast/latest/kubernetes/deploying-in-kubernetes[Hazelcast Kubernetes plugin] which allows to automatically form Hazelcast cluster in the Kubernetes environment. To enabled it, use the following Hazelcast configuration.
 
 [source, yaml]
 ----
@@ -93,10 +93,10 @@ If you want to use your image in the following steps, please also make sure your
 
 == Configure RBAC
 
-https://github.com/hazelcast/hazelcast-kubernetes[Hazelcast Kubernetes discovery plugin] makes calls to Kubernetes API to provide automatic member discovery. Therefore, it needs to have specific ClusterRole rules granted. You can apply the minimal RBAC configuration (for the `default` service account in the `default` namespace) with the following command.
+https://docs.hazelcast.com/hazelcast/latest/kubernetes/kubernetes-auto-discovery[Hazelcast Kubernetes discovery plugin] makes calls to Kubernetes API to provide automatic member discovery. Therefore, it needs to have specific ClusterRole rules granted. You can apply the minimal RBAC configuration (for the `default` service account in the `default` namespace) with the following command.
 
 ----
-kubectl apply -f https://raw.githubusercontent.com/hazelcast/hazelcast-kubernetes/master/rbac.yaml
+kubectl apply -f https://raw.githubusercontent.com/hazelcast/hazelcast/master/kubernetes-rbac.yaml
 ----
 
 Note that:
