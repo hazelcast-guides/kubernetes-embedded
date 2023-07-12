@@ -93,7 +93,7 @@ If you want to use your image in the following steps, please also make sure your
 
 == Configure RBAC
 
-https://docs.hazelcast.com/hazelcast/latest/kubernetes/kubernetes-auto-discovery[Hazelcast Kubernetes discovery plugin] makes calls to Kubernetes API to provide automatic member discovery. Therefore, it needs to have specific ClusterRole rules granted. You can apply the minimal RBAC configuration (for the `default` service account in the `default` namespace) with the following command.
+https://github.com/hazelcast/hazelcast/tree/master/hazelcast/src/main/java/com/hazelcast/kubernetes[Hazelcast Kubernetes discovery plugin] makes calls to Kubernetes API to provide automatic member discovery. Therefore, it needs to have specific ClusterRole rules granted. You can apply the minimal RBAC configuration (for the `default` service account in the `default` namespace) with the following command.
 
 ----
 kubectl apply -f https://raw.githubusercontent.com/hazelcast/hazelcast/master/kubernetes-rbac.yaml
