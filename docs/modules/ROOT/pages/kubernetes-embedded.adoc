@@ -38,7 +38,7 @@ You can use any other JVM-based application framework, but please make sure your
 
 == Use Hazelcast Kubernetes Configuration
 
-Hazelcast provides the dedicated https://docs.hazelcast.com/hazelcast/latest/kubernetes/deploying-in-kubernetes[Hazelcast Kubernetes plugin] which allows to automatically form Hazelcast cluster in the Kubernetes environment. To enabled it, use the following Hazelcast configuration.
+Hazelcast provides the dedicated https://github.com/hazelcast/hazelcast/tree/master/hazelcast/src/main/java/com/hazelcast/kubernetes[Hazelcast Kubernetes plugin] which allows to automatically form Hazelcast cluster in the Kubernetes environment. To enabled it, use the following Hazelcast configuration.
 
 [source, yaml]
 ----
@@ -101,7 +101,7 @@ kubectl apply -f https://raw.githubusercontent.com/hazelcast/hazelcast/master/ku
 
 Note that:
 
-- If you use service account other than `default` or namespace other than `default`, you need to modify https://raw.githubusercontent.com/hazelcast/hazelcast-kubernetes/master/rbac.yaml
+- If you use service account other than `default` or namespace other than `default`, you need to modify https://raw.githubusercontent.com/hazelcast/hazelcast/master/kubernetes-rbac.yaml
 - If your Kubernetes cluster does not use RBAC, you can skip the whole "Configure RBAC" step
 
 == Deploy Application to Kubernetes
