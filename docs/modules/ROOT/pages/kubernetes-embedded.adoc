@@ -13,7 +13,7 @@
 
 == Context
 
-Hazelcast instances from each application replica will all automatically discover themselves and form one consistent Hazelcast cluster. Thanks to https://github.com/hazelcast/hazelcast-kubernetes[Hazelcast Kubernetes discovery plugin], there is no static configuration needed.
+Hazelcast instances from each application replica will all automatically discover themselves and form one consistent Hazelcast cluster. Thanks to https://github.com/hazelcast/hazelcast/tree/master/hazelcast/src/main/java/com/hazelcast/kubernetes[Hazelcast Kubernetes discovery plugin], there is no static configuration needed.
 
 == Before you Begin
 
@@ -38,7 +38,7 @@ You can use any other JVM-based application framework, but please make sure your
 
 == Use Hazelcast Kubernetes Configuration
 
-Hazelcast provides the dedicated https://github.com/hazelcast/hazelcast-kubernetes[Hazelcast Kubernetes plugin] which allows to automatically form Hazelcast cluster in the Kubernetes environment. To enabled it, use the following Hazelcast configuration.
+Hazelcast provides the dedicated https://github.com/hazelcast/hazelcast/tree/master/hazelcast/src/main/java/com/hazelcast/kubernetes[Hazelcast Kubernetes plugin] which allows to automatically form Hazelcast cluster in the Kubernetes environment. To enabled it, use the following Hazelcast configuration.
 
 [source, yaml]
 ----
@@ -93,15 +93,15 @@ If you want to use your image in the following steps, please also make sure your
 
 == Configure RBAC
 
-https://github.com/hazelcast/hazelcast-kubernetes[Hazelcast Kubernetes discovery plugin] makes calls to Kubernetes API to provide automatic member discovery. Therefore, it needs to have specific ClusterRole rules granted. You can apply the minimal RBAC configuration (for the `default` service account in the `default` namespace) with the following command.
+https://github.com/hazelcast/hazelcast/tree/master/hazelcast/src/main/java/com/hazelcast/kubernetes[Hazelcast Kubernetes discovery plugin] makes calls to Kubernetes API to provide automatic member discovery. Therefore, it needs to have specific ClusterRole rules granted. You can apply the minimal RBAC configuration (for the `default` service account in the `default` namespace) with the following command.
 
 ----
-kubectl apply -f https://raw.githubusercontent.com/hazelcast/hazelcast-kubernetes/master/rbac.yaml
+kubectl apply -f https://raw.githubusercontent.com/hazelcast/hazelcast/master/kubernetes-rbac.yaml
 ----
 
 Note that:
 
-- If you use service account other than `default` or namespace other than `default`, you need to modify https://raw.githubusercontent.com/hazelcast/hazelcast-kubernetes/master/rbac.yaml
+- If you use service account other than `default` or namespace other than `default`, you need to modify https://raw.githubusercontent.com/hazelcast/hazelcast/master/kubernetes-rbac.yaml
 - If your Kubernetes cluster does not use RBAC, you can skip the whole "Configure RBAC" step
 
 == Deploy Application to Kubernetes
