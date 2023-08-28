@@ -163,6 +163,7 @@ To delete all Kubernetes resources you created, run the following command.
 
 ----
 kubectl delete deployment/my-app service/my-app
+kubectl delete -f https://raw.githubusercontent.com/hazelcast/hazelcast/master/kubernetes-rbac.yaml
 ----
 
 
