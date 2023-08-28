@@ -33,7 +33,7 @@ git clone https://github.com/hazelcast-guides/hazelcast-embedded-springboot.git
 
 [TIP]
 ====
-You can use any other JVM-based application framework, but please make sure your project includes a dependency to '`hazelcast:hazelcast-all:${hazelcast.version}`' (or '`hazelcast:hazelcast-kubernetes:${hazelcast-kubernetes.version}`').
+You can use any other JVM-based application framework, but please make sure your project includes a dependency to '`hazelcast:hazelcast:${hazelcast.version}`' (or '`hazelcast:hazelcast-spring:${hazelcast.version}`').
 ====
 
 == Use Hazelcast Kubernetes Configuration
