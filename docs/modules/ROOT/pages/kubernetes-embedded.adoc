@@ -49,7 +49,10 @@ hazelcast:
         enabled: false
       kubernetes:
         enabled: true
+        service-port: 5701
 ----
+
+By default, Hazelcast looks for other members among all pods in its own namespace. The `service-port` setting makes it connect to them on Hazelcast's port, 5701. Without it, Hazelcast uses the first container port each pod declares, so pods that declare an application port, such as 8080, don't find each other.
 
 To include this file inside your Spring Boot project, copy it into `hazelcast-embedded-springboot/src/resources/`.
 

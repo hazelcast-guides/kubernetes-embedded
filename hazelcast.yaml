@@ -5,3 +5,4 @@ hazelcast:
         enabled: false
       kubernetes:
         enabled: true
+        service-port: 5701
