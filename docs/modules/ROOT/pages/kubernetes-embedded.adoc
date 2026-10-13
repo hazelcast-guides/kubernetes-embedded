@@ -20,8 +20,8 @@ Hazelcast instances from each application replica will all automatically discove
 - https://docs.docker.com/install/[Docker] (https://www.docker.com/products/docker-desktop[Docker for Desktop] is good enough)
 - https://kubernetes.io/[Kubernetes] cluster (https://www.docker.com/products/docker-desktop[Docker for Desktop] or https://minikube.sigs.k8s.io/docs/[Minikube] is good enough)
 - https://git-scm.com/[Git]
-- JDK 1.8+
-- Apache Maven 3.2+
+- JDK 17+
+- Apache Maven 3.6.3+
 
 == Create an Application
 
@@ -71,7 +71,7 @@ To containerize the application, you need to have Docker installed. Then, you ca
 
 [source, dockerfile]
 ----
-FROM openjdk:8-jre-alpine
+FROM eclipse-temurin:25-jre
 COPY hazelcast-embedded-springboot/target/*.jar app.jar
 ENTRYPOINT ["java","-jar","app.jar"]
 ----
