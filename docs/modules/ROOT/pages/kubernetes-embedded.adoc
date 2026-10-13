@@ -54,11 +54,7 @@ hazelcast:
 
 By default, Hazelcast looks for other members among all pods in its own namespace. The `service-port` setting makes it connect to them on Hazelcast's port, 5701. Without it, Hazelcast uses the first container port each pod declares, so pods that declare an application port, such as 8080, don't find each other.
 
-To include this file inside your Spring Boot project, copy it into `hazelcast-embedded-springboot/src/resources/`.
-
-----
-cp hazelcast.yaml hazelcast-embedded-springboot/src/main/resources/
-----
+Save this configuration as `hazelcast.yaml` in the directory that contains `hazelcast-embedded-springboot`. You'll add it to the Docker image in the next step, so the application uses it only when it runs in Kubernetes.
 
 Now, you can build the project with the following command.
 
@@ -76,8 +72,12 @@ To containerize the application, you need to have Docker installed. Then, you ca
 ----
 FROM eclipse-temurin:25-jre
 COPY hazelcast-embedded-springboot/target/*.jar app.jar
+COPY hazelcast.yaml hazelcast.yaml
+ENV SPRING_HAZELCAST_CONFIG=file:/hazelcast.yaml
 ENTRYPOINT ["java","-jar","app.jar"]
 ----
+
+The `SPRING_HAZELCAST_CONFIG` environment variable tells Spring Boot to use this file instead of the `hazelcast.yaml` packaged in the application, which uses multicast for running locally.
 
 In order to build the Docker image, run the following command.
 
